@@ -12,7 +12,6 @@ class Product implements ProductInterface{
     public function printPrice(){
        echo ('$price'); 
       }
-
 }
 
 

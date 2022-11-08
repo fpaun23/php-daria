@@ -5,6 +5,5 @@ class PublicController{
     public function manageProduct($name){
         $this->name= $name;
     }
-    
 }
 ?>

@@ -6,5 +6,4 @@ interface ProductInterface {
   //public function someMethod2($name, $color);
   //public function someMethod3() : string;
 }
-
 ?>
