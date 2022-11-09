@@ -23,8 +23,8 @@ class ProductController{
         $productsObj->setPrice($price);
         $productsObj->setName($name);
         $productsObj->printPriceAndName();
-        
+
     }
 
 }
-?>
+?>  
