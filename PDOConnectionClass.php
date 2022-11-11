@@ -9,10 +9,15 @@ class PDOConnectionClass
     private $password;
     protected $conn;
 
+    public function __construct()
+    {
+        $this->connect();
+    }
+
     public function connect()
     {
         $this->host_name = "localhost";
-        $this->dbname = "mydatabase2";
+        $this->dbname = "mydatabase3";
         $this->username = "root";
         $this->password = "";
 
@@ -26,9 +31,9 @@ class PDOConnectionClass
         }
     }
 
-    public function getCustomer(string $tableName):array
+    public function get(string $tableName):array
     {
-        $query ="SELECT * FROM . $tableName";
+        $query ="SELECT * FROM " . $tableName;
         $result =$this->conn->query($query);
         return $result->fetchAll();
     }

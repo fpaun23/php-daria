@@ -7,18 +7,26 @@ error_reporting(E_ALL);
 
 require_once('ClassProduct.php');
 require_once('ProductController.php');
-require_once('PDOConnectionClass.php');
 require_once('CustomerController.php');
 
-$conn=new PDOConnectionClass();
-$conn->connect();
+$customerControllerObj = new CustomerControllerClass('customer');
 
-$customerTable=new CustomerControllerClass('customer');
-$cus=$conn->getCustomer('customer');
-//$cus=$conn->insert('customer', ['insert@mail.ro']);
-var_dump($cus);
-$cus=$conn->update('customer', ["email@ulbs.ro", 3]);
-$cus=$conn->delete('customer', 2);
+$customerControllerObj2 = new CustomerControllerClass('products');
+
+
+$customers = $customerControllerObj->getCustomer();
+echo'<pre>';
+var_dump($customers);
+echo '</pre>';
+
+echo '<br />============================ <br />';
+$products = $customerControllerObj2->getCustomer();
+echo'<pre>';
+var_dump($products);
+echo '</pre>';
+
+//$cus=$conn->update('customer', ["email@ulbs.ro", 3]);
+//$cus=$conn->delete('customer', 2);
 
 
 //$customer=$conn->get('customer');
@@ -33,9 +41,6 @@ $cus=$conn->delete('customer', 2);
 // var_dump($customerUpdatedState);
 // echo '</pre>';
 
-// echo'<pre>';
-// var_dump($customer);
-// echo '</pre>';
 
 
 

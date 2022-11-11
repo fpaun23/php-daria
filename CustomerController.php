@@ -1,45 +1,32 @@
 <?php
 
 require_once('PDOConnectionClass.php');
-//include_once('PDOConnectionClass.php');
 
 class CustomerControllerClass
 {
-    protected $tableName='customer';
-    protected $conn;
+    protected $tableName = 'customer';
+    protected $cuscon;
 
     public function __construct(string $tableName)
     {
-        $this->tableName=$tableName;
-        $this->conn=new PDOConnectionClass();
+        $this->tableName = $tableName;
+        $this->cuscon = new PDOConnectionClass();
     }
-    // public function config(string $cuscon)
-    // {
-    //     $cuscon=new PDOConnectionClass();
-    //     $cuscon->connect();
-    // }
-    public function getCustomer(string $tableName):array
+
+    public function getCustomer():array
     {
-        $cuscon=new PDOConnectionClass();
-        $cuscon->connect();
-        return $this->$cuscon->get($this->tableName);
+        return $this->cuscon->get($this->tableName);
     }
-    public function insertCustomer(string $tableName, array $insertData):int
+    public function insertCustomer(array $insertData):int
     {
-        $cuscon=new PDOConnectionClass();
-        $cuscon->connect();
-        return $this->$cuscon->insert($this->tableName, $insertData);
+        return $this->cuscon->insert($insertData);
     }
-    public function updateCustomer(string $tableName, array $updateData):bool
+    public function updateCustomer(array $updateData):bool
     {
-        $cuscon=new PDOConnectionClass();
-        $cuscon->connect();
-        return $this->$cuscon->update($this->tableName, $updateData);
+        return $this->cuscon->update($updateData);
     }
-    public function deleteCustomer(string $tableName, int $customerId):bool
+    public function deleteCustomer(int $customerId):bool
     {
-        $cuscon=new PDOConnectionClass();
-        $cuscon->connect();
-        return $this->$cuscon->delete($this->tableName, $customerId);
+        return $this->cuscon->delete($this->tableName, $customerId);
     }
 }
