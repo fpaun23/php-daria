@@ -12,8 +12,15 @@ require_once('CustomerController.php');
 
 $conn=new PDOConnectionClass();
 $conn->connect();
-$pdo=new CustomerControllerClass($tb);
-$customer=$pdo->getCustomer('customer');
+
+$customerTable=new CustomerControllerClass('customer');
+$cus=$conn->getCustomer('customer');
+//$cus=$conn->insert('customer', ['insert@mail.ro']);
+var_dump($cus);
+$cus=$conn->update('customer', ["email@ulbs.ro", 3]);
+$cus=$conn->delete('customer', 2);
+
+
 //$customer=$conn->get('customer');
 //$customerUpdatedState=$conn->update('customer', ['nest@yahoo', 1]);
 //$insert_customer=$conn->insert('customer', ['nesting@yahoo']);

@@ -7,7 +7,7 @@ class PDOConnectionClass
     private $dbname;
     private $username;
     private $password;
-    private $conn;
+    protected $conn;
 
     public function connect()
     {
