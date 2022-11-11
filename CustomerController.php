@@ -19,11 +19,11 @@ class CustomerControllerClass
     }
     public function insertCustomer(array $insertData):int
     {
-        return $this->cuscon->insert($insertData);
+        return $this->cuscon->insert($this->tableName, $insertData);
     }
     public function updateCustomer(array $updateData):bool
     {
-        return $this->cuscon->update($updateData);
+        return $this->cuscon->update($this->tableName, $updateData);
     }
     public function deleteCustomer(int $customerId):bool
     {

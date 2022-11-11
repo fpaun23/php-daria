@@ -17,7 +17,7 @@ class PDOConnectionClass
     public function connect()
     {
         $this->host_name = "localhost";
-        $this->dbname = "mydatabase3";
+        $this->dbname = "mydatabase2";
         $this->username = "root";
         $this->password = "";
 
