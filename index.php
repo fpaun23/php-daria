@@ -8,13 +8,16 @@ error_reporting(E_ALL);
 require_once('ClassProduct.php');
 require_once('ProductController.php');
 require_once('PDOConnectionClass.php');
+require_once('CustomerController.php');
 
 $conn=new PDOConnectionClass();
 $conn->connect();
+$pdo=new CustomerControllerClass($tb);
+$customer=$pdo->getCustomer('customer');
 //$customer=$conn->get('customer');
 //$customerUpdatedState=$conn->update('customer', ['nest@yahoo', 1]);
 //$insert_customer=$conn->insert('customer', ['nesting@yahoo']);
-$deleteCustomer=$conn->delete('customer', 1);
+//$deleteCustomer=$conn->delete('customer', 1);
 // echo'<pre>';
 // var_dump($insert_customer);
 // echo '</pre>';
@@ -26,17 +29,6 @@ $deleteCustomer=$conn->delete('customer', 1);
 // echo'<pre>';
 // var_dump($customer);
 // echo '</pre>';
-
-
-
-
-
-
-
-
-
-
-
 
 
 

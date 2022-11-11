@@ -26,7 +26,7 @@ class PDOConnectionClass
         }
     }
 
-    public function get(string $tableName):array
+    public function getCustomer(string $tableName):array
     {
         $query ="SELECT * FROM . $tableName";
         $result =$this->conn->query($query);
@@ -55,5 +55,4 @@ class PDOConnectionClass
         
         return(bool) $result->rowCount();
     }
-
 }
