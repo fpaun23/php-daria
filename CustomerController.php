@@ -1,6 +1,6 @@
 <?php
 
-require_once('PDOConnectionClass.php');
+require_once('db/PDOConnectionClass.php');
 
 class CustomerControllerClass
 {
