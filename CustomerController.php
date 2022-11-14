@@ -1,6 +1,9 @@
 <?php
 
+
 require_once('db/PDOConnectionClass.php');
+require_once('db/MysqliConnectionClass.php');
+
 
 class CustomerControllerClass
 {
@@ -11,6 +14,7 @@ class CustomerControllerClass
     {
         $this->tableName = $tableName;
         $this->cuscon = new PDOConnectionClass();
+        $this->sqlcon=new MysqliConnectionClass();
     }
 
     public function getCustomer():array
