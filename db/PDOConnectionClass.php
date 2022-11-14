@@ -1,39 +1,19 @@
 <?php
 
+include_once('db/config.php');
+include_once('db/DbConnectionInterface.php');
 
-include_once('config.php');
-include_once('DbConnectionInterface.php');
-
-
+global $result;
 class PDOConnectionClass implements DbConnectionInterface
 {
-    protected $configuration = include('config.php');//?
-
-    // private $host_name;
-    // private $dbname;
-    // private $username;
-    // private $password;
-    protected $conn;
-
     public function __construct()
     {
         $this->connect();
-        //$this->config=$array;
     }
-    // public function config()
-    // {
-    //     $this->
-    // }
     public function connect()
     {
-        // $this->host_name = "localhost";
-        // $this->dbname = "mydatabase2";
-        // $this->username = "root";
-        // $this->password = "";
-
         try {
-            $this->conn = new PDO($this->config); //?
-
+            $this->conn = new PDO('mysql:host=' .Config::HOST. '; dbname=' .Config::DATABASE, Config::USER, Config::PASSWORD);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo 'connection succesfully';
         } catch (PDOException $e) {
@@ -55,7 +35,7 @@ class PDOConnectionClass implements DbConnectionInterface
         return(bool) $result->rowCount();
     }
 
-    public function insert(string $tableName, array $insertData):bool
+    public function insert(string $tableName, array $insertData):array
     {
         $query="INSERT INTO $tableName (`email`) VALUES ('$insertData[0]')";
         $result=$this->conn->query($query);

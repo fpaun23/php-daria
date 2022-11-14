@@ -8,21 +8,26 @@ error_reporting(E_ALL);
 require_once('ClassProduct.php');
 require_once('ProductController.php');
 require_once('CustomerController.php');
+require_once('db/MysqliConnectionClass.php');
 
-$customerControllerObj = new CustomerControllerClass('customer');
+//$customerControllerObj = new CustomerControllerClass('customer', $logger);
+//$customerControllerObj2 = new CustomerControllerClass('products', $logger);
+//$customers = $customerControllerObj->getCustomer();
+//echo'<pre>';
+//var_dump($customers);
+//echo '</pre>';
 
-$customerControllerObj2 = new CustomerControllerClass('products');
+// echo '<br />============================ <br />';
+// $products = $customerControllerObj2->getCustomer();
+// echo'<pre>';
+// var_dump($products);
+// echo '</pre>';
 
-
-$customers = $customerControllerObj->getCustomer();
+$logger= new MysqliConnectionClass();
+$newUpdate=new CustomerControllerClass('customer', $logger);
+$interf=$newUpdate->getCustomer();
 echo'<pre>';
-var_dump($customers);
-echo '</pre>';
-
-echo '<br />============================ <br />';
-$products = $customerControllerObj2->getCustomer();
-echo'<pre>';
-var_dump($products);
+var_dump($interf);
 echo '</pre>';
 
 //$cus=$conn->update('customer', ["email@ulbs.ro", 3]);
